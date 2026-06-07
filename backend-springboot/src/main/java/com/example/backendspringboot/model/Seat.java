@@ -1,0 +1,14 @@
+package com.example.backendspringboot.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Seat {
+
+    private Integer seatNumber;
+    private Boolean available;
+}
