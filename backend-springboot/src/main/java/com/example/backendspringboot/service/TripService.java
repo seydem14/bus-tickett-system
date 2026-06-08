@@ -27,4 +27,29 @@ public class TripService {
     public Trip getTripById(Long id) {
         return tripRepository.findById(id).orElse(null);
     }
+
+    public Trip createTrip(Trip trip) {
+        return tripRepository.save(trip);
+    }
+
+    public void deleteTrip(Long id) {
+        tripRepository.deleteById(id);
+    }
+
+    public Trip updateTrip(Long id, Trip updatedTrip) {
+        Trip existingTrip = tripRepository.findById(id).orElse(null);
+
+        if (existingTrip == null) {
+            return null;
+        }
+
+        existingTrip.setFromCity(updatedTrip.getFromCity());
+        existingTrip.setToCity(updatedTrip.getToCity());
+        existingTrip.setDate(updatedTrip.getDate());
+        existingTrip.setTime(updatedTrip.getTime());
+        existingTrip.setPrice(updatedTrip.getPrice());
+        existingTrip.setCompanyName(updatedTrip.getCompanyName());
+
+        return tripRepository.save(existingTrip);
+    }
 }

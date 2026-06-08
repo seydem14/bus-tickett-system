@@ -30,6 +30,23 @@ public class TripController {
         return tripService.getTripById(id);
     }
 
+    @PostMapping("/api/trips")
+    public Trip createTrip(@RequestBody Trip trip) {
+        return tripService.createTrip(trip);
+    }
+
+    @DeleteMapping("/api/trips/{id}")
+    public void deleteTrip(@PathVariable Long id) {
+        tripService.deleteTrip(id);
+    }
+
+    @PutMapping("/api/trips/{id}")
+    public Trip updateTrip(@PathVariable Long id, @RequestBody Trip trip) {
+        return tripService.updateTrip(id, trip);
+    }
+
+
+
 //    @GetMapping("/api/trips")
 //    public List<Trip> getTrips() {
 //        return tripService.getTrips();
