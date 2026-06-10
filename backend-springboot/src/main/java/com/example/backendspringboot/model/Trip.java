@@ -1,5 +1,6 @@
 package com.example.backendspringboot.model;
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,9 @@ import jakarta.persistence.Table;
 public class Trip {
     @Id
     private Long id;
+    @Column(name = "from_city")
     private String fromCity;
+    @Column(name = "to_city")
     private String toCity;
     private String date;
     private String time;
